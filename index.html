@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChampTech Creations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #F4A261; /* Soft orange */
+            --accent-color: #2A6F97; /* Deep teal */
+            --bg-color: #E9ECEF; /* Creamy beige */
+            --text-color: #333333; /* Charcoal */
+            --card-bg: #FFFFFF; /* White for cards */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: var(--accent-color);
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease forwards;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            margin-right: 15px;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .logo-img:hover {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        .company-name {
+            color: var(--primary-color);
+            font-family: 'Georgia', serif;
+            font-size: 1.6em;
+            font-weight: bold;
+            opacity: 0;
+            animation: slideInRight 1s ease forwards 0.5s;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .company-name:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .social-icons a {
+            color: var(--primary-color);
+            margin-left: 20px;
+            font-size: 1.4em;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            color: var(--text-color);
+            transform: translateY(-5px) scale(1.2);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            opacity: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        h2 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            animation: popIn 1s ease forwards;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: var(--primary-color);
+            transition: width 0.5s ease;
+        }
+
+        h2:hover::after {
+            width: 100%;
+        }
+
+        /* Animations */
+        @keyframes flyInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            50% { transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes flyInDown {
+            0% { opacity: 0; transform: translateY(-50px); }
+            50% { transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes flyInLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            50% { transform: translateX(10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes flyInRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            50% { transform: translateX(-10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes parallax {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideInFromBottom {
+            0% { opacity: 0; transform: translateY(100%); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color); }
+        }
+
+        @keyframes rainbow {
+            0% { color: #ff0000; }
+            14% { color: #ff7f00; }
+            28% { color: #ffff00; }
+            42% { color: #00ff00; }
+            57% { color: #0000ff; }
+            71% { color: #4b0082; }
+            85% { color: #9400d3; }
+            100% { color: #ff0000; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        @keyframes flip {
+            0% { transform: perspective(400px) rotateY(0); }
+            100% { transform: perspective(400px) rotateY(360deg); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px var(--primary-color); }
+            50% { box-shadow: 0 0 20px var(--primary-color); }
+            100% { box-shadow: 0 0 5px var(--primary-color); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes slideInFromLeft {
+            0% { opacity: 0; transform: translateX(-100%); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInFromRight {
+            0% { opacity: 0; transform: translateX(100%); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes zoomIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInUpBig {
+            0% { opacity: 0; transform: translateY(100px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDownBig {
+            0% { opacity: 0; transform: translateY(-100px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('images/hero-bg.jpg') no-repeat center/cover fixed;
+            animation: flyInUp 1.5s ease forwards;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+            animation: flyInLeft 1s ease forwards 0.5s, pulse 2s infinite 2s;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: white;
+            margin-top: 10px;
+            animation: flyInRight 1s ease forwards 1s;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            animation: bounce 1s ease forwards 1.5s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .services {
+            animation: flyInUp 1s ease forwards 0.5s;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #ffffff 100%);
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 0.8s ease forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            transition: all 0.5s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.2) rotate(10deg);
+            animation: none;
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            animation: slideInFromLeft 1s ease forwards 0.2s;
+            color: var(--accent-color);
+        }
+
+        .service-card p {
+            font-size: 1em;
+            line-height: 1.4;
+            animation: slideInFromRight 1s ease forwards 0.4s;
+        }
+
+        .service-card .learn-more {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 50px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards 0.8s;
+        }
+
+        .service-card:hover .learn-more {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .about-us {
+            animation: flyInDown 1s ease forwards 0.7s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-us .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/about-bg.jpg') no-repeat center/cover fixed;
+            z-index: -1;
+            animation: parallax 10s infinite alternate;
+        }
+
+        .about-us-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+
+        .about-us p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            animation: fadeInUpBig 1s ease forwards 0.9s;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 40px auto;
+            animation: fadeIn 1s ease forwards 1.2s;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 15px;
+            animation: popIn 0.6s ease forwards;
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover .stat-number {
+            transform: scale(1.2);
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            animation: flip 1s ease forwards;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px) scale(1.03);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            transition: all 0.5s ease;
+            border: 5px solid var(--primary-color);
+            object-fit: cover;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+            border-color: white;
+            animation: none;
+        }
+
+        .team-member h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            animation: slideInFromBottom 1s ease forwards 0.4s;
+        }
+
+        .team-member p {
+            font-size: 0.9em;
+            animation: slideInFromBottom 1s ease forwards 0.6s;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            animation: fadeIn 1s ease forwards 0.8s;
+        }
+
+        .social-links a {
+            color: white;
+            background: var(--accent-color);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .testimonials {
+            animation: flyInUp 1s ease forwards 0.9s;
+            background: linear-gradient(135deg, #ffffff 0%, var(--bg-color) 100%);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-bubble {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 700px;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease forwards;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-bubble::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 5em;
+            color: rgba(244, 162, 97, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-bubble p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-bubble strong {
+            color: var(--accent-color);
+            font-size: 1.1em;
+        }
+
+        .testimonial-bubble:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .testimonial-nav button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-nav button.active {
+            background: var(--primary-color);
+            transform: scale(1.3);
+        }
+
+        .projects {
+            animation: flyInDown 1s ease forwards 1.1s;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #ffffff 100%);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 0.8s ease forwards;
+            transition: all 0.5s ease;
+            height: 300px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 111, 151, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .project-card:hover .project-caption {
+            opacity: 1;
+        }
+
+        .project-caption h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-caption h3 {
+            transform: translateY(0);
+        }
+
+        .project-caption p {
+            font-size: 1em;
+            margin-bottom: 15px;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.1s;
+        }
+
+        .project-card:hover .project-caption p {
+            transform: translateY(0);
+        }
+
+        .project-caption a {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.2s;
+        }
+
+        .project-card:hover .project-caption a {
+            transform: translateY(0);
+        }
+
+        .project-caption a:hover {
+            background: white;
+            color: var(--accent-color);
+        }
+
+        .lyric-line {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .project-card:hover .lyric-line {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact {
+            animation: flyInUp 1s ease forwards 1.3s;
+            background: linear-gradient(135deg, #ffffff 0%, var(--bg-color) 100%);
+        }
+
+        .contact form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: popIn 1s ease forwards;
+            transition: all 0.5s ease;
+        }
+
+        .contact form:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact input, .contact select, .contact textarea {
+            padding: 12px;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            font-size: 1em;
+            background: #fff;
+            transition: all 0.3s ease;
+            animation: flyInLeft 1s ease forwards 0.2s;
+        }
+
+        .contact input:focus, .contact select:focus, .contact textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 8px rgba(244, 162, 97, 0.5);
+        }
+
+        .contact button {
+            padding: 12px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: flyInRight 1s ease forwards 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact button:hover {
+            background: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1em;
+            animation: flyInUp 1s ease forwards 0.6s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: bounce 1s ease forwards 0.8s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .whatsapp-btn:hover {
+            background: #25D366;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: var(--accent-color);
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .mobile-nav a {
+            color: var(--primary-color);
+            font-size: 1.6em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: popIn 1s ease forwards;
+            position: relative;
+            padding: 5px;
+        }
+
+        .mobile-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .mobile-nav a:hover {
+            color: white;
+        }
+
+        .mobile-nav a:hover::after {
+            width: 100%;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scroll indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: var(--primary-color);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Particle animation */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid var(--primary-color);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 300px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+                padding-top: 100px;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .service-cards, .team-members, .project-grid {
+                grid-template-columns: 1fr;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            .contact form {
+                padding: 20px;
+            }
+            .project-card img {
+                height: 200px;
+            }
+            .stats {
+                flex-direction: column;
+            }
+            .stat-item {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress"></div>
+    <div class="back-to-top"><i class="fas fa-arrow-up"></i></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/WhatsApp Image 2025-06-13 at 13.04.15_89c06f46.jpg" alt="ChampTech Creations Logo" class="logo-img">
+            </div>
+            <h1 class="company-name">ChampTech Creations</h1>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="particles" id="particles-js"></div>
+        <div class="hero-content">
+            <h1>Welcome to ChampTech Creations</h1>
+            <p class="typewriter">Innovative Tech Solutions for Your Future</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <img src="images/digital .jpg" alt="Digital Marketing">
+                <h3>Digital Marketing</h3>
+                <p>Boost your online presence with expert campaigns. E.g., increased a client's sales by 40% using targeted ads in just 3 months.</p>
+                <a href="digitalmarketing.html" class="learn-more">Learn More</a>
+            </div>
+            <div class="service-card">
+                <img src="images/web.jpg" alt="Web Development">
+                <h3>Web Development</h3>
+                <p>Craft stunning, responsive websites. Built a site that boosted a client's traffic by 50% with custom SEO optimization.</p>
+                <a href="webdevelopment.html" class="learn-more">Learn More</a>
+            </div>
+            <div class="service-card">
+                <img src="images/cctv.jpg" alt="Camera Installation">
+                <h3>Camera Installation</h3>
+                <p>Secure your space with top-tier solutions. Installed a 24/7 surveillance system for a business, reducing theft by 30%.</p>
+                <a href="camerainstallation.html" class="learn-more">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Our Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="images/blue.jpg" alt="Project 1">
+                <div class="project-caption">
+                    <h3>E-Commerce Site</h3>
+                    <p>
+                        <span class="lyric-line" style="transition-delay: 0.1s">A sleek design that flows,</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.3s">Boosted sales with style that glows.</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.5s">Mobile-first approach,</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.7s">Conversion rates now approach.</span>
+                    </p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="images/flyer.jpg" alt="Project 2">
+                <div class="project-caption">
+                    <h3>Marketing Flyer</h3>
+                    <p>
+                        <span class="lyric-line" style="transition-delay: 0.1s">Bold and bright,</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.3s">Doubled engagement, pure delight.</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.5s">Colors that pop,</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.7s">Messages that never stop.</span>
+                    </p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="images/good.jpg" alt="Project 3">
+                <div class="project-caption">
+                    <h3>Security System</h3>
+                    <p>
+                        <span class="lyric-line" style="transition-delay: 0.1s">Strong and true,</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.3s">Safeguarded all, a perfect view.</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.5s">Day and night,</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.7s">Everything stays in sight.</span>
+                    </p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="images/another-project.jpg" alt="Project 4">
+                <div class="project-caption">
+                    <h3>Web App</h3>
+                    <p>
+                        <span class="lyric-line" style="transition-delay: 0.1s">Smooth and fast,</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.3s">Streamlined work that's built to last.</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.5s">User-friendly design,</span><br>
+                        <span class="lyric-line" style="transition-delay: 0.7s">Making workflows shine.</span>
+                    </p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us" class="about-us">
+        <div class="parallax-bg"></div>
+        <div class="about-us-content">
+            <h2>About Us</h2>
+            <p>ChampTech Creations was founded in 2022 by Jabualni B. Mayenda with a mission to bring innovative tech solutions to businesses and homes. Starting with a small team in Blantyre, we've grown into a trusted name, delivering over 50 successful projects. Our passion for technology and customer satisfaction drives us every day.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+            
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="images/me1.jpg" alt="Jabualni B. Mayenda">
+                    <h3>JABUALNI B. MAYENDA</h3>
+                    <p>CEO & Founder - Visionary leader with 10+ years in tech, led a project that won the 2023 Innovation Award. Fun fact: Loves hiking!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/me 2.jpg" alt="Benson Mayenda">
+                    <h3>BENSON MAYENDA</h3>
+                    <p>Lead Developer - Expert in web and app development, built a site that hit 1M views. Coffee addict!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/treasure.jpg" alt="Treasure">
+                    <h3>TREASURE</h3>
+                    <p>Marketing Expert - Mastered campaigns that boosted client reach by 60%. Avid photographer!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>What People Say About Us</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-bubble">
+                <p>"Amazing service! ChampTech transformed our online presence quickly and efficiently. Our website traffic increased by 300% within the first month of their digital marketing campaign."</p>
+                <p><strong>- Sarah K., Small Business Owner</strong></p>
+            </div>
+            <div class="testimonial-bubble" style="display: none;">
+                <p>"Professional and efficient—highly recommend them! The security system they installed has given us peace of mind with its 24/7 monitoring and instant alerts."</p>
+                <p><strong>- Paul R., Retail Store Manager</strong></p>
+            </div>
+            <div class="testimonial-bubble" style="display: none;">
+                <p>"Best tech support I've experienced—great results! Their web development team created a stunning e-commerce site that boosted our sales by 40% in the first quarter."</p>
+                <p><strong>- John D., E-Commerce Entrepreneur</strong></p>
+            </div>
+            <div class="testimonial-bubble" style="display: none;">
+                <p>"Turned our security worries into peace of mind—top-notch! The camera system they designed covers every angle and integrates seamlessly with our mobile devices."</p>
+                <p><strong>- Maria L., School Administrator</strong></p>
+            </div>
+            <div class="testimonial-nav">
+                <button class="active"></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form action="https://zapier.com/webhook/your-webhook-url" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Your Phone" required>
+            <select name="service" required>
+                <option value="">Select Service</option>
+                <option value="digitalmarketing">Digital Marketing</option>
+                <option value="webdevelopment">Web Development</option>
+                <option value="camerainstallation">Camera Installation</option>
+                <option value="consultation">Consultation</option>
+                <option value="other">Other</option>
+            </select>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send to WhatsApp</button>
+        </form>
+        <div class="contact-info">
+            <p>Email: mayendajabulani@gmail.com</p>
+            <p>WhatsApp: 0881103561</p>
+            <p>Address: Blantyre Mpemba</p>
+            <a href="https://wa.me/265881103561?text=Hello%20I%20want%20to%20book%20a%20consultation" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a>
+        </div>
+    </section>
+
+    <div class="mobile-nav">
+        <a href="#home"><i class="fas fa-home"></i></a>
+        <a href="#services"><i class="fas fa-cogs"></i></a>
+        <a href="#projects"><i class="fas fa-briefcase"></i></a>
+        <a href="#about-us"><i class="fas fa-users"></i></a>
+        <a href="#contact"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll progress indicator
+            const scrollProgress = document.querySelector('.scroll-progress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight;
+                const clientHeight = document.documentElement.clientHeight;
+                const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+                scrollProgress.style.width = ${progress}%;
+            });
+
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Testimonial slider
+            const testimonialBubbles = document.querySelectorAll('.testimonial-bubble');
+            const testimonialNav = document.querySelectorAll('.testimonial-nav button');
+            let currentTestimonial = 0;
+
+            function showTestimonial(index) {
+                testimonialBubbles.forEach((bubble, i) => {
+                    bubble.style.display = i === index ? 'block' : 'none';
+                    bubble.style.animation = i === index ? 'fadeIn 1s ease forwards' : 'none';
+                });
+                testimonialNav.forEach((btn, i) => {
+                    btn.classList.toggle('active', i === index);
+                });
+            }
+
+            testimonialNav.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    currentTestimonial = index;
+                    showTestimonial(currentTestimonial);
+                });
+            });
+
+            // Auto rotate testimonials
+            setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % testimonialBubbles.length;
+                showTestimonial(currentTestimonial);
+            }, 5000);
+
+            // Trigger animations on scroll
+            const sections = document.querySelectorAll('section');
+            function checkScroll() {
+                sections.forEach(section => {
+                    const sectionPosition = section.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    if (sectionPosition < screenPosition) {
+                        section.style.opacity = '1';
+                        section.style.animationPlayState = 'running';
+                    }
+                    
+                    // Animate children elements
+                    const elements = section.querySelectorAll('.service-card, .team-member, .project-card, .testimonial-bubble, .contact input, .contact button, .contact-info, .whatsapp-btn, .stat-item, .social-links a');
+                    elements.forEach((el, index) => {
+                        const delay = index * 0.2;
+                        el.style.animationDelay = ${delay}s;
+                        el.style.animationPlayState = 'running';
+                    });
+                });
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            document.querySelector('.hero').style.opacity = '1';
+            document.querySelector('.hero').style.animationPlayState = 'running';
+            checkScroll();
+
+            // Create particles for hero section
+            function createParticles() {
+                const particlesContainer = document.querySelector('.particles');
+                const particleCount = 30;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random size between 2px and 6px
+                    const size = Math.random() * 4 + 2;
+                    particle.style.width = ${size}px;
+                    particle.style.height = ${size}px;
+                    
+                    // Random position
+                    particle.style.left = ${Math.random() * 100}%;
+                    particle.style.bottom = -${size}px;
+                    
+                    // Random animation duration between 10s and 20s
+                    const duration = Math.random() * 10 + 10;
+                    particle.style.animationDuration = ${duration}s;
+                    
+                    // Random delay
+                    particle.style.animationDelay = ${Math.random() * 5}s;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            
+            createParticles();
+            
+            // Mobile nav active state
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNavLinks.forEach(lnk => lnk.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Smooth scrolling for all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
